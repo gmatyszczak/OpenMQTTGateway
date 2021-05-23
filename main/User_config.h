@@ -27,9 +27,12 @@
 */
 #ifndef user_config_h
 #define user_config_h
+
+#include "Credentials.h"
+
 /*-------------------VERSION----------------------*/
 #ifndef OMG_VERSION
-#  define OMG_VERSION "version_tag"
+#  define OMG_VERSION "v0.9.6"
 #endif
 
 /*-------------CONFIGURE WIFIMANAGER-------------(only ESP8266 & SONOFF RFBridge)*/
@@ -50,7 +53,7 @@
  */
 /*-------------DEFINE GATEWAY NAME BELOW IT CAN ALSO BE DEFINED IN platformio.ini----------------*/
 #ifndef Gateway_Name
-#  define Gateway_Name "OpenMQTTGateway"
+#  define Gateway_Name CREDENTIAL_GATEWAY_NAME
 #endif
 #ifndef Gateway_Short_Name
 #  define Gateway_Short_Name "OMG"
@@ -83,10 +86,10 @@ const byte mac[] = {0xDE, 0xED, 0xBA, 0xFE, 0x54, 0x95}; //W5100 ethernet shield
 
 #if defined(ESPWifiManualSetup) // for nodemcu, weemos and esp8266
 #  ifndef wifi_ssid
-#    define wifi_ssid "wifi ssid"
+#    define wifi_ssid CREDENTIAL_WIFI_SSID
 #  endif
 #  ifndef wifi_password
-#    define wifi_password "wifi password"
+#    define wifi_password CREDENTIAL_WIFI_PASSWORD
 #  endif
 #endif
 
@@ -134,13 +137,13 @@ const byte mac[] = {0xDE, 0xED, 0xBA, 0xFE, 0x54, 0x95}; //W5100 ethernet shield
 #endif
 
 #ifndef MQTT_USER
-#  define MQTT_USER "your_username"
+#  define MQTT_USER CREDENTIAL_MQTT_USER
 #endif
 #ifndef MQTT_PASS
-#  define MQTT_PASS "your_password"
+#  define MQTT_PASS CREDENTIAL_MQTT_PASSWORD
 #endif
 #ifndef MQTT_SERVER
-#  define MQTT_SERVER "192.168.1.17"
+#  define MQTT_SERVER CREDENTIAL_MQTT_SERVER
 #endif
 #ifndef MQTT_PORT
 #  define MQTT_PORT MQTT_DEFAULT_PORT
@@ -194,7 +197,7 @@ int lowpowermode = DEFAULT_LOW_POWER_MODE;
 //#define ZgatewayPilight "Pilight" //ESP8266, Arduino, ESP32
 //#define ZgatewayWeatherStation "WeatherStation" //ESP8266, Arduino, ESP32
 //#define ZgatewayGFSunInverter "GFSunInverter"   //ESP32
-//#define ZgatewayBT     "BT"       //ESP8266, ESP32
+#define ZgatewayBT     "BT"       //ESP8266, ESP32
 //#define ZgatewayRF2    "RF2"      //ESP8266, Arduino, ESP32
 //#define ZgatewaySRFB   "SRFB"     //                          Sonoff RF Bridge
 //#define Zgateway2G     "2G"       //ESP8266, Arduino, ESP32
@@ -262,7 +265,7 @@ int lowpowermode = DEFAULT_LOW_POWER_MODE;
 #  define ota_hostname Gateway_Name
 #endif
 #ifndef ota_password
-#  define ota_password "OTAPASSWORD"
+#  define ota_password CREDENTIAL_OTA_PASSWORD
 #endif
 #ifndef ota_port
 #  define ota_port 8266
