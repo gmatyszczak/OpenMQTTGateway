@@ -76,7 +76,7 @@ const byte subnet[] = {255, 255, 255, 0};
 #endif
 
 #if defined(ESP8266) || defined(ESP32) // for nodemcu, weemos and esp8266
-//#  define ESPWifiManualSetup true //uncomment you don't want to use wifimanager for your credential settings on ESP
+#  define ESPWifiManualSetup true //uncomment you don't want to use wifimanager for your credential settings on ESP
 #else // for arduino boards
 const byte ip[] = {192, 168, 1, 99};
 const byte mac[] = {0xDE, 0xED, 0xBA, 0xFE, 0x54, 0x95}; //W5100 ethernet shield mac adress
